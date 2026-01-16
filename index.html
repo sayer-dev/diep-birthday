@@ -16,20 +16,40 @@
       overflow: hidden;
     }
 
-    /* bubbles */
+    /* ---------- BUBBLES ---------- */
     .bubble {
       position: absolute;
-      bottom: -100px;
-      background: rgba(255, 255, 255, 0.3);
+      bottom: -120px;
       border-radius: 50%;
+      background: radial-gradient(
+        circle at 30% 30%,
+        rgba(255,255,255,0.95),
+        rgba(255,255,255,0.55),
+        rgba(255,255,255,0.25)
+      );
+      box-shadow:
+        0 0 18px rgba(255,255,255,0.7),
+        inset -4px -6px 12px rgba(255,255,255,0.4);
       animation: rise linear infinite;
+      pointer-events: none;
+      z-index: 1;
     }
 
     @keyframes rise {
-      from { transform: translateY(0); }
-      to { transform: translateY(-120vh); }
+      from {
+        transform: translateY(0) translateX(0);
+        opacity: 0;
+      }
+      10% {
+        opacity: 1;
+      }
+      to {
+        transform: translateY(-130vh) translateX(70px);
+        opacity: 0;
+      }
     }
 
+    /* ---------- CARD ---------- */
     .card {
       position: relative;
       z-index: 2;
@@ -59,8 +79,8 @@
     }
 
     .input-box input {
-      width: 45px;
-      height: 45px;
+      width: 48px;
+      height: 48px;
       text-align: center;
       font-size: 22px;
       border-radius: 8px;
@@ -70,7 +90,7 @@
 
     .go-btn {
       margin-left: 10px;
-      padding: 10px 20px;
+      padding: 10px 22px;
       font-size: 16px;
       border-radius: 10px;
       border: none;
@@ -93,11 +113,12 @@
 
 <body>
 
-  <!-- bubbles -->
-  <div class="bubble" style="width:40px; height:40px; left:10%; animation-duration:12s;"></div>
-  <div class="bubble" style="width:25px; height:25px; left:30%; animation-duration:9s;"></div>
-  <div class="bubble" style="width:60px; height:60px; left:55%; animation-duration:15s;"></div>
-  <div class="bubble" style="width:35px; height:35px; left:75%; animation-duration:11s;"></div>
+  <!-- BUBBLES -->
+  <div class="bubble" style="width:70px; height:70px; left:8%; animation-duration:14s;"></div>
+  <div class="bubble" style="width:45px; height:45px; left:28%; animation-duration:10s;"></div>
+  <div class="bubble" style="width:90px; height:90px; left:52%; animation-duration:18s;"></div>
+  <div class="bubble" style="width:55px; height:55px; left:72%; animation-duration:12s;"></div>
+  <div class="bubble" style="width:35px; height:35px; left:85%; animation-duration:9s;"></div>
 
   <div class="card">
     <div class="riddle">
